@@ -1,0 +1,98 @@
+{
+  "Routes": [
+    //GetToken
+    {
+      "DownstreamPathTemplate": "/api/authenticate/GetToken",
+      "DownStreamScheme": "https",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/Ocelot/GetToken",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
+    },
+    //RefreshToken
+    {
+      "DownstreamPathTemplate": "/api/authenticate/GetRefreshToken",
+      "DownStreamScheme": "https",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/Ocelot/GetRefreshToken",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
+    },
+    //WeatherForecast GetAll
+    {
+      "DownstreamPathTemplate": "/weatherforecast/GetAll",
+      "DownStreamScheme": "https",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44331
+        }
+      ],
+      "UpstreamPathTemplate": "/Ocelot/GetAll",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
+    },
+    //WeatherForecast Test
+    {
+      "DownstreamPathTemplate": "/weatherforecast/Test",
+      "DownStreamScheme": "https",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44331
+        }
+      ],
+      "UpstreamPathTemplate": "/Ocelot/Test",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "JWTBearer",
+        "AllowedScopes": []
+      }
+    },
+    //City Add
+    {
+      "DownstreamPathTemplate": "/api/city/AddCity",
+      "DownStreamScheme": "https",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44331
+        }
+      ],
+      "UpstreamPathTemplate": "/Ocelot/AddCity",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "JWTBearer",
+        "AllowedScopes": []
+      }
+    },
+    //City GetAll
+    {
+      "DownstreamPathTemplate": "/api/city/GetAllCities",
+      "DownStreamScheme": "https",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44331
+        }
+      ],
+      "UpstreamPathTemplate": "/Ocelot/GetAllCities",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "JWTBearer",
+        "AllowedScopes": []
+      }
+    }
+
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5021"
+  }
+}
