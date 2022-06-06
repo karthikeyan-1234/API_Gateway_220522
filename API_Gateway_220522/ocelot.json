@@ -84,11 +84,35 @@
         }
       ],
       "UpstreamPathTemplate": "/Ocelot/GetAllCities",
-      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ],
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
+      /*   Temporarily Switching Off Authentication To Test SignalR
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "JWTBearer",
         "AllowedScopes": []
-      }
+      }*/
+    },
+    {
+      "DownstreamPathTemplate": "/ws",
+      "UpstreamPathTemplate": "/",
+      "DownstreamScheme": "ws",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44331//44391
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/notify",
+      "DownStreamScheme": "wss",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44331//44391
+        }
+      ],
+      "UpstreamPathTemplate": "/notify",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
     }
 
   ],

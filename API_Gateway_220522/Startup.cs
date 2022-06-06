@@ -34,7 +34,8 @@ namespace API_Gateway_220522
         {
             services.AddOcelot();
 
-            CorsPolicyBuilder builder = new CorsPolicyBuilder().AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+            CorsPolicyBuilder builder = new CorsPolicyBuilder().AllowAnyHeader().AllowAnyMethod()//.AllowAnyOrigin();
+                .AllowCredentials().WithOrigins("http://localhost:4200");
             CorsPolicy policy = builder.Build();
 
             services.AddCors(opt => {
@@ -78,7 +79,7 @@ namespace API_Gateway_220522
                 });
             });
 
-
+            app.UseWebSockets(); //Include this to let SignalR work with WebSockets. Else Signalr will fail
             app.UseOcelot().Wait();
         }
     }
