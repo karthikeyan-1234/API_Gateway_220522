@@ -98,7 +98,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44331//44391
+          "Port": 44331 //44391
         }
       ]
     },
@@ -108,10 +108,22 @@
       "DownStreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44331//44391
+          "Port": 44331 //44391
         }
       ],
       "UpstreamPathTemplate": "/notify",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/message",
+      "DownStreamScheme": "wss",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44331 //44391
+        }
+      ],
+      "UpstreamPathTemplate": "/message",
       "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
     }
 

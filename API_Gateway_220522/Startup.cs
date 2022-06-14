@@ -34,8 +34,8 @@ namespace API_Gateway_220522
         {
             services.AddOcelot();
 
-            CorsPolicyBuilder builder = new CorsPolicyBuilder().AllowAnyHeader().AllowAnyMethod()//.AllowAnyOrigin();
-                .AllowCredentials().WithOrigins(new string[] { "http://localhost:4200","*" });
+            CorsPolicyBuilder builder = new CorsPolicyBuilder().AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                //.AllowCredentials().WithOrigins(new string[] { "http://localhost:4200","*" });
             CorsPolicy policy = builder.Build();
 
             services.AddCors(opt => {
